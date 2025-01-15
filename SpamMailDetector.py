@@ -1,4 +1,5 @@
 # Import necessary libraries
+
 import pandas as pd
 import re
 from nltk.corpus import stopwords
@@ -101,3 +102,13 @@ def display_results(email_text):
 # Example usage
 display_results("Hello, this is a spam email.")
 display_results("Hello, this is a ham email.")
+def check_email_spam():
+    email_text = input("Enter an email text to check if it's spam or not: ")
+    email_vec = vectorizer.transform([email_text])
+    prediction = model.predict(email_vec)
+    result = "Spam" if prediction[0] == 1 else "Ham"
+    print(f"Email: {email_text}\nPrediction: {result}\n")
+
+# Example usage
+check_email_spam()
+
